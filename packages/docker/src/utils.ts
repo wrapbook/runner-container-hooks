@@ -31,6 +31,8 @@ export function optionsWithDockerEnvs(
   options?: RunDockerCommandOptions
 ): RunDockerCommandOptions | undefined {
   // From https://docs.docker.com/engine/reference/commandline/cli/#environment-variables
+  // These, combined with any variables provided via options.env,
+  // will be passed to the shell running the docker command
   const dockerCliEnvs = new Set([
     'DOCKER_API_VERSION',
     'DOCKER_CERT_PATH',
@@ -43,7 +45,9 @@ export function optionsWithDockerEnvs(
     'DOCKER_HOST',
     'DOCKER_STACK_ORCHESTRATOR',
     'DOCKER_TLS_VERIFY',
-    'BUILDKIT_PROGRESS'
+    'BUILDKIT_PROGRESS',
+    'GITHUB_ACTIONS',
+    'CI'
   ])
   const dockerEnvs = {}
   for (const key in process.env) {

@@ -48,6 +48,8 @@ export async function createContainer(
       dockerArgs.push(key)
     }
   }
+  // Explicitly set GITHUB_ACTIONS and CI env vars on the container
+  dockerArgs.push('-e', 'GITHUB_ACTIONS', '-e', 'CI')
 
   const mountVolumes = [
     ...(args.userMountVolumes || []),

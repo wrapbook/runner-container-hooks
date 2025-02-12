@@ -70,6 +70,15 @@ export function optionsWithDockerEnvs(
   return newOptions
 }
 
+export function cleanEnvironment(): void {
+  const sensitiveEnvs = new Set(['AWS_SECRET_ACCESS_KEY', 'AWS_ACCESS_KEY_ID'])
+  for (const key in sensitiveEnvs) {
+    if (process.env[key]) {
+      core.setSecret(process.env[key] as string)
+    }
+  }
+}
+
 export function sanitize(val: string): string {
   if (!val || typeof val !== 'string') {
     return ''

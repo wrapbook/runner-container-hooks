@@ -316,7 +316,7 @@ export async function getContainerEnvValue(
 export async function registryLogin(registry?: Registry): Promise<string> {
   // if registry credentials are not provided, skip login and return default docker config location
   if (!registry) {
-    return env.DOCKER_CONFIG || `${env.HOME}/.docker`
+    return env.DOCKER_CONFIG_CI_RUNNERS || `${env.HOME}/.docker`
   }
   const credentials = {
     username: registry.username,

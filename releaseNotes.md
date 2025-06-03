@@ -1,6 +1,6 @@
 ## Features
 
-- conditionally skip docker login step to fallback on default docker config if no registry credentials are provided
+- Update environment variable `DOCKER_CONFIG` to `DOCKER_CONFIG_CI_RUNNER` to avoid conflicts with other Docker configurations.
 
 <!-- ## Bugs -->
 

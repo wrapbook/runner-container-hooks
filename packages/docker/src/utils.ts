@@ -36,7 +36,7 @@ export function optionsWithDockerEnvs(
   const dockerCliEnvs = new Set([
     'DOCKER_API_VERSION',
     'DOCKER_CERT_PATH',
-    'DOCKER_CONFIG',
+    'DOCKER_CONFIG_CI_RUNNERS',
     'DOCKER_CONTENT_TRUST_SERVER',
     'DOCKER_CONTENT_TRUST',
     'DOCKER_CONTEXT',
